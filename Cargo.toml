@@ -1,0 +1,23 @@
+[package]
+name = "libplugin"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+license = "MIT"
+description = "Minimal plugin framework: static registration plus runtime-loaded native plugins via a C-ABI vtable, with manifest discovery and lifecycle management"
+readme = "README.md"
+repository = "https://github.com/chinokoyuki/libplugin"
+keywords = ["plugin", "dynamic-loading", "abi", "libloading", "extension"]
+categories = ["development-tools"]
+
+[dependencies]
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+libloading = "0.8"
+
+[[example]]
+name = "echo_plugin"
+crate-type = ["cdylib"]
+path = "examples/echo_plugin.rs"
